@@ -1,0 +1,27 @@
+.BackGround {
+    background-color:black;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+.gameContainer {
+    margin: auto;
+    display: flex;
+    width: 450px;
+    height:450px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.cell {
+    width: 150px;
+    height:150px;
+    font-size: 3em;
+    text-align: center;
+    padding: 48px 0;
+    border: 2px solid white;
+}
+section {
+    text-align: center;
+}
