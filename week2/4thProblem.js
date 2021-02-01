@@ -1,10 +1,7 @@
-
 Array.prototype.newMap = function(fn, context=this) {
     const resultArray = [];
-    for (let index of context) {
-        if(!isNaN(Number(index))){
-            resultArray.push(fn(context[index], index, context));
-        }
+    for(let index=0;index<context.length;index++){
+        resultArray.push(fn(context[index],index,context));
     }
     return resultArray;
 }
@@ -26,30 +23,11 @@ Object.defineProperty(Array.prototype, "newForEach", {
     enumerable: false
 });
 
+const sample = [1, 2, 4];
 
-const arraySparse = [0,3,,7, undefined];
-arraySparse.test = 'bad';
-
-modifiedArr = arraySparse.map( function(value, index, sample) {
+modifiedArr = sample.newMap( function(value, index, sample) {
     console.log(value);
-    return value;
+    return value*2;
 });
 
 console.log(modifiedArr);
-console.log(typeof modifiedArr[2]);
-
-//Array.prototype.newForEach = function()
-
-
-
-// const arraySparse = [0,3,,7]
-// arraySparse.test = 'bad';
-// let numCallbackRuns = 0;
-
-
-// arraySparse.newForEach(function(element) {
-//     console.log(element)
-//     numCallbackRuns++
-// });
-
-// console.log(numCallbackRuns);

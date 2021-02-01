@@ -1,26 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Tic Tac Toe</title>
     <link href="./style.css" rel="stylesheet" type="text/css" />
   </head>
-  <body class = "BackGround">
-        <h1>Tic Tac Toe</h1>
-        <div class="gameContainer">
-            <div data-cell-index = "0" class = "cell"></div>
-            <div data-cell-index = "1" class = "cell"></div>
-            <div data-cell-index = "2" class = "cell"></div>
-            <div data-cell-index = "3" class = "cell"></div>
-            <div data-cell-index = "4" class = "cell"></div>
-            <div data-cell-index = "5" class = "cell"></div>
-            <div data-cell-index = "6" class = "cell"></div>
-            <div data-cell-index = "7" class = "cell"></div>
-            <div data-cell-index = "8" class = "cell"></div>
+  <body id="backgroundWrapper">
+
+    <div id="topContainer">
+      <h1>Tic Tac Toe</h1>
+      <div id="popUpWindow">
+
+        <div id="popUpHeader">
+          <div>RULES FOR TIC-TAC-TOE</div>
+          <button id="closeButton">X</button>
         </div>
 
-        <h2 class="gameStatus"></h2>
-        <button class="gameRestart">Restart Game</button>
-        <script src="script.js"></script>
+        <div class="popUpBody">
+          <ul>
+            <li class="listItems">Game starts just by tap on the box.</li>
+            <li class="listItems">You are X, your friend is O.</li>
+            <li class="listItems">
+              First Player starts as <strong> Player X </strong>
+            </li>
+            <li class="listItems">
+              The first player to get 3 of her marks in a row (up, down, across,
+              or diagonally) is the winner.
+            </li>
+            <li class="listItems">
+              When all 9 squares are full, the game is over.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <img src="./question_mark_PNG134.png" id="helpSymbol" />
+    </div>
+    
+    <div id="gameContainer">
+      <div data-cell-index="0" class="cell"></div>
+      <div data-cell-index="1" class="cell"></div>
+      <div data-cell-index="2" class="cell"></div>
+      <div data-cell-index="3" class="cell"></div>
+      <div data-cell-index="4" class="cell"></div>
+      <div data-cell-index="5" class="cell"></div>
+      <div data-cell-index="6" class="cell"></div>
+      <div data-cell-index="7" class="cell"></div>
+      <div data-cell-index="8" class="cell"></div>
+    </div>
+
+    <div id="footerContainer">
+      <h2 id="gameStatus"></h2>
+      <button id="gameRestartBtn">Restart Game</button>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

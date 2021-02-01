@@ -1,27 +1,87 @@
-.BackGround {
-    background-color:black;
-    color: white;
+* {
+  box-sizing: border-box;
 }
 
-* {
-    box-sizing: border-box;
+#backgroundWrapper {
+  background-color: black;
+  color: white;
 }
-.gameContainer {
-    margin: auto;
-    display: flex;
-    width: 450px;
-    height:450px;
-    flex-direction: row;
-    flex-wrap: wrap;
+
+#gameContainer {
+  margin: auto;
+  display: flex;
+  width: 450px;
+  height: 450px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .cell {
-    width: 150px;
-    height:150px;
-    font-size: 3em;
-    text-align: center;
-    padding: 48px 0;
-    border: 2px solid white;
+  width: 150px;
+  height: 150px;
+  font-size: 48px;
+  text-align: center;
+  padding: 48px 0;
+  border: 2px solid white;
 }
-section {
-    text-align: center;
+#helpSymbol {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+#topContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#topContainer h1 {
+  color: royalblue;
+  font-size: 60px;
+}
+
+#popUpWindow {
+  position: fixed;
+  z-index: 2;
+  top: 10px;
+  left: 1000px;
+  background: black;
+  width: auto;
+  height: auto;
+  display: none;
+}
+
+#popUpHeader {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid bottom;
+}
+
+#popUpHeader > div {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#footerContainer {
+  text-align: center;
+}
+
+#gameStatus {
+  font-size: 40px;
+  color: royalblue;
+}
+
+#gameRestartBtn {
+  font-size: 30px;
+  color: royalblue;
+}
+
+.listItems {
+  font-size: 20px;
+}
+
+#closeButton {
+  cursor: pointer;
 }

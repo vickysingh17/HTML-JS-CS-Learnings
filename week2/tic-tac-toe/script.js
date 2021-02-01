@@ -1,77 +1,80 @@
-const restartBtn = document.querySelector('.gameRestart');
+const restartBtn = document.getElementById('gameRestartBtn');
 const cellElements = document.querySelectorAll('.cell');
-const gameStatus = document.querySelector('.gameStatus');
-const gameContainer = document.querySelector('.gameContainer');
+const gameStatus = document.getElementById('gameStatus');
+const gameContainer = document.getElementById('gameContainer');
+const helpSymbol = document.getElementById('helpSymbol');
+const popUpWindow = document.getElementById('popUpWindow');
+const closeButton = document.getElementById('closeButton');
 const winningCombinations = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
 ];
-let cellState = ["", "", "", "", "", "", "", "", ""];
+
+let cellState = ['', '', '', '', '', '', '', '', ''];
 let gameActive = true;
-let currentPlayer = "X";
+let currentPlayer = 'X';
 
 gameStatus.innerHTML = `Player ${currentPlayer} Turn`;
 
-const cellClickedHandler = (eventObject) => {
-    let cellClicked = eventObject.target;
-    //console.log(cellClicked);
-    //console.log(cellClicked.getAttribute('data-cell-index'));
-    let cellIndex = cellClicked.getAttribute('data-cell-index');
-    //console.log('CELLINDEX+++++++++++      ' + cellIndex)
-    if(cellState[cellIndex]!=="" || !gameActive){
-        return;
-    }
-    //console.log('hello');
-    cellState[cellIndex] = currentPlayer;
-    console.log(cellState);
-    cellClicked.innerHTML = currentPlayer;
-    console.log(cellClicked);
-    // checking if the after the placement of X the combination is a winning combination
-    let roundWon = false;
-    for(let i=0 ; i<winningCombinations.length ; i++) {
-        let a = cellState[winningCombinations[i][0]];
-        let b = cellState[winningCombinations[i][1]];
-        let c = cellState[winningCombinations[i][2]];
-        if (a === '' || b === '' || c === '') {
-            continue;
-        }
-        console.log(roundWon);
-        if (a === b && b === c) {
-            roundWon = true;
-            break;
-        }
-    }
-    if(roundWon) {
-        gameActive = false;
-        gameStatus.innerHTML = `Player ${currentPlayer} Won`;
-        return;
-    }
+helpSymbol.addEventListener('click', () => {
+  popUpWindow.style.display = 'block';
+});
 
-    let roundDraw = !cellState.includes("");
-    if (roundDraw) {
-        gameStatus.innerHTML = `Nobody Won`;
-        gameActive = false;
-        return;
-    }
+closeButton.addEventListener('click', () => {
+  popUpWindow.style.display = 'none';
+});
 
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-    console.log('PlayerStatus   ' + currentPlayer);
-    gameStatus.innerHTML = `Player ${currentPlayer} turn`;
-}
+const cellClickedHandler = eventObject => {
+  let cellClicked = eventObject.target;
+  let cellIndex = cellClicked.getAttribute('data-cell-index');
+  if (cellState[cellIndex] !== '' || !gameActive) {
+    return;
+  }
+  cellState[cellIndex] = currentPlayer;
+  cellClicked.innerHTML = currentPlayer;
+  // checking if the after the placement of X the combination is a winning combination
+  let isWinner = false;
+  for (let i = 0; i < winningCombinations.length; i++) {
+    let a = cellState[winningCombinations[i][0]];
+    let b = cellState[winningCombinations[i][1]];
+    let c = cellState[winningCombinations[i][2]];
+    if (a === '' || b === '' || c === '') {
+      continue;
+    }
+    if (a === b && b === c) {
+      isWinner = true;
+      break;
+    }
+  }
+  if (isWinner) {
+    gameActive = false;
+    gameStatus.innerHTML = `Player ${currentPlayer} Won`;
+    return;
+  }
+
+  let noWinner = !cellState.includes('');
+  if (noWinner) {
+    gameStatus.innerHTML = `Nobody Won`;
+    gameActive = false;
+    return;
+  }
+
+  currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  gameStatus.innerHTML = `Player ${currentPlayer} turn`;
+};
 gameContainer.addEventListener('click', cellClickedHandler);
 
- 
 const restartEventHandler = () => {
-    gameActive = true;
-    cellState = ["", "", "", "", "", "", "", "", ""];
-    currentPlayer = "X"
-    cellElements.forEach(cell => cell.innerHTML = "");
-    gameStatus.innerHTML = `Player ${currentPlayer} Turn`;
-}
+  gameActive = true;
+  cellState = ['', '', '', '', '', '', '', '', ''];
+  currentPlayer = 'X';
+  cellElements.forEach(cell => (cell.innerHTML = ''));
+  gameStatus.innerHTML = `Player ${currentPlayer} Turn`;
+};
 restartBtn.addEventListener('click', restartEventHandler);
