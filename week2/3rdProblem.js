@@ -21,6 +21,5 @@ const memoize = func => {
   };
 };
 const memoizedFactorial = memoize(factorial);
-const memoizedFactorial2 = memoize(factorial);
 console.log(memoizedFactorial(17)); // slow
 console.log(memoizedFactorial(17)); // faster

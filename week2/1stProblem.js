@@ -16,5 +16,3 @@ var currySum = sumMeUp(sum);
 console.log(currySum(1, 3, 6));
 console.log(currySum(2, 3)(3));
 console.log(currySum(1)(2)(3));
-
-// check the length of the argument. More or less. More kae case it should return undefined, less 
