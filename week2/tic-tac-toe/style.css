@@ -8,7 +8,7 @@
 }
 
 #gameContainer {
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   width: 450px;
   height: 450px;
@@ -56,7 +56,7 @@
   padding: 20px;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid bottom;
+  border-bottom: 2px solid white;
 }
 
 #popUpHeader > div {

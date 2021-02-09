@@ -4,5 +4,5 @@ function doSum(a) {
   };
 }
 
-const sumVal = doSum(1)(2)(3)();
+const sumVal = doSum(1)();
 console.log(sumVal);

@@ -7,12 +7,10 @@ Array.prototype.newMap = function(fn, context=this) {
 }
 
 Array.prototype.newForEach = function(fn, context=this) {
-    for (let index in context) {
-        if(!isNaN(Number(index))){
+    for (let index=0 ; index<context.length ; index++) {
             fn(context[index], index, context);
         }
     }
-}
 
 
 Object.defineProperty(Array.prototype, "newMap", {
@@ -31,3 +29,15 @@ modifiedArr = sample.newMap( function(value, index, sample) {
 });
 
 console.log(modifiedArr);
+
+
+
+const arraySparse = [0,3,    ,7, undefined];
+arraySparse.test = 'bad';
+
+arraySparse.newForEach( function(value, index, sample) {
+    console.log(value);
+});
+
+
+
