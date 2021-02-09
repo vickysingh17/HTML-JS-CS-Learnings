@@ -4,8 +4,14 @@
   align-items: center;
 }
 
-.topContainer > h1 {
-  color: purple;
+.topContainer > div {
+  color: royalblue;
+  text-align: center;
+  font-size: 60px;
+}
+
+#searchBar {
+  height: 20px;
 }
 
 #showsList {
@@ -24,6 +30,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 300px;
   grid-template-areas: 'image contentArea';
+  cursor: pointer;
 }
 
 .showInfo > section {
@@ -45,4 +52,48 @@
   grid-area: image;
   width: 100%;
   height: 100%;
+  transition: 0.5s all ease-in-out; 
+}
+
+.showInfo:hover {
+  z-index: 2;
+  background-color: white;
+  animation-name: zoomIn;
+  animation-duration: 1s;
+}
+
+@keyframes zoomIn {
+  from {
+      transform: scale(1.0);
+  } to {
+      transform: scale(1.15);
+  }
+}
+
+
+#spinner{
+  display: block;
+  width: 120px;
+  height: 120px;
+
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  border-radius: 50%;
+
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right: 0;
+  margin: auto;
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  } to {
+      transform: rotate(360deg);
+  }
 }

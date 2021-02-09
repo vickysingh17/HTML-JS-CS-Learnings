@@ -1,0 +1,115 @@
+.topContainer {
+    display: flex;
+    background: #DCDCDC;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+    
+  .backgroundWrapper {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .topContainer > div {
+    color: royalblue;
+    text-align: center;
+    font-size: 60px;
+  }
+  
+  .topContainer > button {
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    font-size: 30px;
+    color: royalblue;
+    cursor: pointer;
+  }
+  
+    
+  #topDetails {
+    text-align: center;
+    grid-area: 'details';
+  }
+  
+  .movieDetails {
+    font-size: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color : white;
+  }
+  
+  .movieTitle {
+    font-size: 60px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color : Tomato   ;
+  }
+  
+  
+  .trailerWrapper {
+    grid-area: trailer;
+    height: 89vh;
+  }
+  
+  .trailerWrapper > iframe{
+    width: 100%;
+    height:100%;
+  }
+  
+  
+  #spinner{
+    display: block;
+    width: 120px;
+    height: 120px;
+  
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid blue;
+    border-bottom: 16px solid blue;
+    border-radius: 50%;
+  
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    margin: auto;
+    z-index: 100;
+  
+    animation: spin 1s infinite linear;
+  }
+  
+  
+  @keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+  }
+  
+  #topDetails > button {
+    width: 120px;
+    height:40px;
+    margin-top: 10px;;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .mainContents {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 89vh;
+    grid-template-areas: 'details trailer';
+    align-items: center;
+  
+  }
+  
+  @media all and (max-width: 1000px) {
+    .mainContents {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 500px 500px;
+      grid-template-areas: "details"
+                          "trailer";
+    }
+  }
